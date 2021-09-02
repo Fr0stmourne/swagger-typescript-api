@@ -29,7 +29,7 @@ export class HttpClient {
           (await this.securityWorker(this.securityData))) ||
         {};
       const requestParams = this.mergeRequestParams(params, secureParams);
-      const responseFormat = (format && this.format) || void 0;
+      const responseFormat = (format || this.format) || void 0;
       if (type === ContentType.FormData && body && body !== null && typeof body === "object") {
         requestParams.headers.common = { Accept: "*/*" };
         requestParams.headers.post = {};
